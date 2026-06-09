@@ -1,0 +1,60 @@
+:root {
+  font-family: var(--heading), 'Segoe UI', system-ui, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color: var(--text);
+  background:
+    radial-gradient(circle at top, rgba(186, 225, 255, 0.7), transparent 34%),
+    radial-gradient(circle at bottom right, rgba(143, 191, 240, 0.32), transparent 38%),
+    linear-gradient(180deg, #f8fcff 0%, #eef7ff 48%, #e3f1ff 100%);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color-scheme: light;
+  --heading: 'Segoe Print', 'Bradley Hand', cursive;
+  --handwriting: 'Segoe Print', 'Bradley Hand', cursive;
+  --text: #244264;
+  --text-h: #17375b;
+  --muted: #5f7ea3;
+  --bg: #f6fbff;
+  --border: rgba(71, 127, 198, 0.14);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  color: var(--text);
+  background: transparent;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+::selection {
+  color: #03121f;
+  background: #9dd5ff;
+}
+
+a {
+  color: inherit;
+}
