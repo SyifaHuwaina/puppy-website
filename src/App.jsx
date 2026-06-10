@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
 import './App.css'
 
+import Background from './components/background'
 import Guitar from './pages/guitar'
 import Heart from './pages/heart'
 import MusicBoard from './pages/musicboard'
@@ -63,16 +64,6 @@ function LetterPage() {
 
   return (
     <>
-      <div className="bg-orb bg-orb-left" aria-hidden="true" />
-      <div className="bg-orb bg-orb-right" aria-hidden="true" />
-      <div className="bg-stars" aria-hidden="true" />
-
-      <div className="bg-ribbons" aria-hidden="true">
-        <span className="ribbon ribbon-1" />
-        <span className="ribbon ribbon-2" />
-        <span className="ribbon ribbon-3" />
-      </div>
-
       <div className="floating-designs" aria-hidden="true">
         {galleryImages.map((image, index) => (
           <img
@@ -171,6 +162,8 @@ function App() {
   return (
     <BrowserRouter>
       <div className="app">
+        <Background />
+
         <nav className="nav">
           <Link to="/">💌 Letter</Link>
           <Link to="/guitar">🎸 Guitar</Link>
