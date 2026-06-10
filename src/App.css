@@ -3,6 +3,7 @@
   min-height: 100vh;
   overflow: hidden;
   color: var(--text);
+  isolation: isolate;
 }
 
 .app::before {
@@ -34,6 +35,10 @@
 .sparkles {
   position: fixed;
   pointer-events: none;
+}
+
+.bg-ribbons {
+  z-index: -1;
 }
 
 .bg-orb {
@@ -146,7 +151,7 @@
 .floating-designs {
   position: fixed;
   inset: 0;
-  z-index: 0;
+  z-index: -1;
   pointer-events: none;
 }
 
@@ -1116,6 +1121,8 @@
 }
 
 .compliments-page {
+  position: relative;
+  z-index: 1;
   min-height: 100vh;
   padding: 5rem 1rem;
   display: grid;
@@ -1123,6 +1130,8 @@
 }
 
 .corkboard {
+  position: relative;
+  z-index: 1;
   width: min(1100px, 100%);
   min-height: 650px;
   padding: 2rem;
@@ -1279,4 +1288,329 @@
 .sticky-note:active {
   cursor: grabbing;
   z-index: 999;
+}
+
+/* ===========================
+   OPEN WHEN PAGE
+=========================== */
+
+.openwhen-page {
+  min-height: 100vh;
+  padding: 3rem 1rem;
+}
+
+.openwhen-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.openwhen-header h1 {
+  font-size: clamp(3rem, 8vw, 5rem);
+  color: #244264;
+  margin: 0.5rem 0;
+}
+
+.openwhen-header p {
+  color: #6f8fb2;
+}
+
+.opened-counter {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.6rem 1rem;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.8);
+  color: #315884;
+  box-shadow: 0 10px 20px rgba(75,124,186,0.12);
+}
+
+/* ===========================
+   DESK
+=========================== */
+
+.letter-desk {
+  position: relative;
+
+  width: min(1200px, 100%);
+  height: 800px;
+
+  margin: 0 auto;
+
+  border-radius: 32px;
+
+  background:
+    linear-gradient(
+      rgba(255,255,255,0.04),
+      rgba(255,255,255,0.04)
+    ),
+    #d8ae7a;
+
+  box-shadow:
+    inset 0 0 50px rgba(0,0,0,0.08),
+    0 20px 50px rgba(0,0,0,0.15);
+}
+
+/* ===========================
+   ENVELOPES
+=========================== */
+
+.desk-envelope {
+  position: absolute;
+
+  width: 180px;
+  height: 120px;
+
+  border: none;
+  border-radius: 18px;
+
+  background: #fffef8;
+
+  cursor: pointer;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  gap: 0.4rem;
+
+  box-shadow: 0 15px 25px rgba(0,0,0,0.12);
+
+  transition: 0.25s;
+}
+
+.desk-envelope:hover {
+  transform: scale(1.08);
+}
+
+.envelope-emoji {
+  font-size: 2rem;
+}
+
+.envelope-title {
+  font-size: 0.85rem;
+  color: #315884;
+  text-align: center;
+  max-width: 140px;
+}
+
+/* ===========================
+   ENVELOPE POSITIONS
+=========================== */
+
+.envelope-place-1 {
+  top: 60px;
+  left: 100px;
+  transform: rotate(-10deg);
+}
+
+.envelope-place-2 {
+  top: 90px;
+  left: 450px;
+  transform: rotate(8deg);
+}
+
+.envelope-place-3 {
+  top: 60px;
+  right: 120px;
+  transform: rotate(-6deg);
+}
+
+.envelope-place-4 {
+  top: 300px;
+  left: 150px;
+  transform: rotate(12deg);
+}
+
+.envelope-place-5 {
+  top: 320px;
+  left: 500px;
+  transform: rotate(-8deg);
+}
+
+.envelope-place-6 {
+  top: 260px;
+  right: 180px;
+  transform: rotate(6deg);
+}
+
+.envelope-place-7 {
+  bottom: 80px;
+  left: 120px;
+  transform: rotate(-7deg);
+}
+
+.envelope-place-8 {
+  bottom: 90px;
+  left: 500px;
+  transform: rotate(10deg);
+}
+
+.envelope-place-9 {
+  bottom: 120px;
+  right: 150px;
+  transform: rotate(-12deg);
+}
+
+/* ===========================
+   LETTER POPUP
+=========================== */
+
+.letter-modal {
+  position: fixed;
+  inset: 0;
+
+  background: rgba(0,0,0,0.45);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  z-index: 9999;
+}
+
+.letter-paper-open {
+  position: relative;
+
+  width: min(750px, 90%);
+  min-height: 500px;
+
+  padding: 2rem;
+
+  border-radius: 24px;
+
+  background:
+    repeating-linear-gradient(
+      to bottom,
+      #ffffff,
+      #ffffff 31px,
+      #d7e6f5 32px
+    );
+
+  box-shadow: 0 30px 80px rgba(0,0,0,0.25);
+
+  animation: popIn 0.25s ease;
+}
+
+.paper-sticker {
+  position: absolute;
+
+  top: -20px;
+  left: 30px;
+
+  width: 60px;
+  height: 60px;
+
+  border-radius: 18px;
+
+  background: white;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 2rem;
+
+  box-shadow: 0 10px 20px rgba(0,0,0,0.12);
+
+  transform: rotate(-8deg);
+}
+
+.close-letter {
+  position: absolute;
+
+  top: 15px;
+  right: 15px;
+
+  border: none;
+  background: none;
+
+  font-size: 1.4rem;
+
+  cursor: pointer;
+}
+
+.letter-paper-open h2 {
+  color: #244264;
+  margin-bottom: 1.5rem;
+}
+
+.letter-paper-open p {
+  white-space: pre-line;
+  line-height: 2;
+  color: #315884;
+}
+
+/* ===========================
+   STICKERS
+=========================== */
+
+.sticker-row {
+  margin-top: 2rem;
+
+  display: flex;
+  gap: 0.75rem;
+}
+
+.sticker-row span {
+  width: 45px;
+  height: 45px;
+
+  border-radius: 12px;
+
+  background: white;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  box-shadow: 0 8px 18px rgba(0,0,0,0.08);
+
+  font-size: 1.2rem;
+}
+
+/* ===========================
+   ANIMATION
+=========================== */
+
+@keyframes popIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* ===========================
+   MOBILE
+=========================== */
+
+@media (max-width: 768px) {
+  .letter-desk {
+    height: auto;
+
+    display: grid;
+    grid-template-columns: 1fr;
+
+    gap: 1rem;
+
+    padding: 1rem;
+  }
+
+  .desk-envelope {
+    position: relative;
+
+    width: 100%;
+
+    left: unset !important;
+    right: unset !important;
+    top: unset !important;
+    bottom: unset !important;
+
+    transform: none !important;
+  }
 }
