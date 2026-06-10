@@ -8,15 +8,6 @@ import Heart from './pages/heart'
 import MusicBoard from './pages/musicboard'
 import Compliments from './pages/compliment'
 
-const galleryImages = [
-  { src: '/design.jpg', alt: 'Romantic design card collage' },
-  { src: '/design1.jpg', alt: 'Blue envelope and scrapbook design' },
-  { src: '/design2.jpg', alt: 'Cute cat and heart illustration' },
-  { src: '/design3.jpg', alt: 'Bold black and white guitar style design' },
-  { src: '/design4.jpg', alt: 'Soft inspirational reminder card' },
-  { src: '/design5.jpg', alt: 'Another scrapbook style design card' },
-]
-
 const puppyMessages = [
   'Good boy!',
   "Mommy's so proud of you!",
@@ -64,17 +55,6 @@ function LetterPage() {
 
   return (
     <>
-      <div className="floating-designs" aria-hidden="true">
-        {galleryImages.map((image, index) => (
-          <img
-            key={image.src}
-            className={`floating-design floating-${index + 1}`}
-            src={image.src}
-            alt=""
-          />
-        ))}
-      </div>
-
       <main className={`love-page ${isOpen ? 'open' : ''}`}>
         <div className="page-header">
           <p className="page-tag">for my sweetest puppy</p>
