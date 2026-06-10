@@ -360,37 +360,39 @@ function OpenWhen() {
           </div>
         </div>
 
-        {deskPins.map((pin) => (
-          <button
-            key={pin.id}
-            type="button"
-            className="desk-pin"
-            onMouseDown={(event) =>
-              dragItem(event, pin.id, deskPins, setDeskPins)
-            }
-            style={{
-              left: `${pin.x}px`,
-              top: `${pin.y}px`,
-            }}
-          >
-            {pin.emoji}
-          </button>
-        ))}
+        <div className="letter-desk__stage">
+          {deskPins.map((pin) => (
+            <button
+              key={pin.id}
+              type="button"
+              className="desk-pin"
+              onMouseDown={(event) =>
+                dragItem(event, pin.id, deskPins, setDeskPins)
+              }
+              style={{
+                left: `${pin.x}px`,
+                top: `${pin.y}px`,
+              }}
+            >
+              {pin.emoji}
+            </button>
+          ))}
 
-        {letters.map((letter, index) => (
-          <button
-            type="button"
-            key={letter.title}
-            className={`desk-envelope envelope-place-${index + 1}`}
-            onMouseDown={(event) => dragEnvelope(event, index)}
-            style={{
-              translate: `${letterPositions[index].x}px ${letterPositions[index].y}px`,
-            }}
-          >
-            <span className="envelope-emoji">{letter.emoji}</span>
-            <span className="envelope-title">{letter.title}</span>
-          </button>
-        ))}
+          {letters.map((letter, index) => (
+            <button
+              type="button"
+              key={letter.title}
+              className={`desk-envelope envelope-place-${index + 1}`}
+              onMouseDown={(event) => dragEnvelope(event, index)}
+              style={{
+                translate: `${letterPositions[index].x}px ${letterPositions[index].y}px`,
+              }}
+            >
+              <span className="envelope-emoji">{letter.emoji}</span>
+              <span className="envelope-title">{letter.title}</span>
+            </button>
+          ))}
+        </div>
       </section>
 
       {selectedLetter && (
