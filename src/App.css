@@ -1459,23 +1459,29 @@
 .letter-modal {
   position: fixed;
   inset: 0;
-
-  background: rgba(0,0,0,0.45);
+  z-index: 9999;
 
   display: flex;
   justify-content: center;
   align-items: center;
 
-  z-index: 9999;
+  padding: 2rem;
+
+  background: rgba(0, 0, 0, 0.45);
+
+  overflow-y: auto;
 }
 
 .letter-paper-open {
   position: relative;
 
   width: min(750px, 90%);
-  min-height: 500px;
+  max-width: 750px;
 
-  padding: 2rem;
+  max-height: 82vh;
+  min-height: 420px;
+
+  padding: 2.5rem 2rem 2rem;
 
   border-radius: 24px;
 
@@ -1487,19 +1493,22 @@
       #d7e6f5 32px
     );
 
-  box-shadow: 0 30px 80px rgba(0,0,0,0.25);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.25);
+
+  overflow-y: auto;
 
   animation: popIn 0.25s ease;
 }
 
 .paper-sticker {
-  position: absolute;
-
-  top: -20px;
-  left: 30px;
+  position: sticky;
+  top: 0;
 
   width: 60px;
   height: 60px;
+
+  margin-top: -2rem;
+  margin-left: 0;
 
   border-radius: 18px;
 
@@ -1511,28 +1520,44 @@
 
   font-size: 2rem;
 
-  box-shadow: 0 10px 20px rgba(0,0,0,0.12);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
 
   transform: rotate(-8deg);
+
+  z-index: 20;
 }
 
 .close-letter {
-  position: absolute;
+  position: sticky;
+  top: 0;
 
-  top: 15px;
-  right: 15px;
+  float: right;
+
+  width: 42px;
+  height: 42px;
 
   border: none;
-  background: none;
+  border-radius: 50%;
 
-  font-size: 1.4rem;
+  background: rgba(255, 255, 255, 0.95);
+  color: #315884;
+
+  font-size: 1.2rem;
 
   cursor: pointer;
+
+  box-shadow: 0 8px 18px rgba(75, 124, 186, 0.14);
+
+  z-index: 50;
+}
+
+.close-letter:hover {
+  transform: scale(1.08);
 }
 
 .letter-paper-open h2 {
   color: #244264;
-  margin-bottom: 1.5rem;
+  margin: 1rem 0 1.5rem;
 }
 
 .letter-paper-open p {
@@ -1613,4 +1638,156 @@
 
     transform: none !important;
   }
+}
+
+/* ==========================
+   PIN TRAY
+========================== */
+
+.pin-tray {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+
+  z-index: 20;
+
+  padding: 1rem;
+
+  border-radius: 20px;
+
+  background: rgba(255,255,255,0.82);
+
+  backdrop-filter: blur(12px);
+
+  box-shadow:
+    0 15px 30px rgba(70,45,25,0.15);
+}
+
+.pin-tray p {
+  margin: 0 0 0.6rem;
+
+  color: #315884;
+
+  font-size: 0.8rem;
+
+  text-align: center;
+
+  font-weight: 600;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.08em;
+}
+
+.pin-tray div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+/* ==========================
+   BUTTONS
+========================== */
+
+.pin-tray button,
+.sticker-row button {
+  border: none;
+
+  width: 44px;
+  height: 44px;
+
+  border-radius: 14px;
+
+  background: white;
+
+  cursor: pointer;
+
+  font-size: 1.2rem;
+
+  transition: all 0.2s ease;
+
+  box-shadow:
+    0 8px 16px rgba(75,124,186,0.12);
+}
+
+.pin-tray button:hover,
+.sticker-row button:hover {
+  transform: translateY(-3px) scale(1.08);
+}
+
+/* ==========================
+   DRAGGABLE PINS
+========================== */
+
+.desk-pin {
+  position: absolute;
+
+  border: none;
+  background: transparent;
+
+  cursor: grab;
+
+  user-select: none;
+
+  font-size: 2rem;
+
+  z-index: 50;
+
+  transition: transform 0.15s ease;
+}
+
+.desk-pin:hover {
+  transform: scale(1.15);
+}
+
+.desk-pin:active {
+  cursor: grabbing;
+  z-index: 999;
+}
+
+/* ==========================
+   DRAGGABLE STICKERS
+========================== */
+
+.placed-sticker {
+  position: absolute;
+
+  border: none;
+  background: transparent;
+
+  cursor: grab;
+
+  user-select: none;
+
+  font-size: 2.3rem;
+
+  z-index: 50;
+
+  transition: transform 0.15s ease;
+}
+
+.placed-sticker:hover {
+  transform: scale(1.15);
+}
+
+.placed-sticker:active {
+  cursor: grabbing;
+  z-index: 999;
+}
+
+/* ==========================
+   STICKER PANEL
+========================== */
+
+.sticker-row {
+  margin-top: 2rem;
+
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 0.6rem;
+
+  position: relative;
+
+  z-index: 10;
 }
