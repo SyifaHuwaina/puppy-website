@@ -7,6 +7,7 @@ import Guitar from './pages/guitar'
 import Heart from './pages/heart'
 import MusicBoard from './pages/musicboard'
 import Compliments from './pages/compliment'
+import OpenWhen from "./pages/openwhen";
 
 const puppyMessages = [
   'Good boy!',
@@ -150,6 +151,7 @@ function App() {
           <Link to="/heart">💗 Tap Heart</Link>
           <Link to="/musicboard">🌟 Music Board</Link>
           <Link to="/compliment">Compliments</Link>
+          <Link to="/openwhen">📬 Open When</Link>
         </nav>
 
         <Routes>
@@ -158,6 +160,7 @@ function App() {
           <Route path="/heart" element={<Heart />} />
           <Route path="/musicboard" element={<MusicBoard />} />
           <Route path="/compliment" element={<Compliments />} />
+          <Route path="/openwhen" element={<OpenWhen />} />
         </Routes>
       </div>
     </BrowserRouter>
